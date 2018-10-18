@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="byType">
+
+    <!-- ======================== 任务 Task配置 ======================== -->
+    <!--由MethodInvokingJobDetailFactoryBean实现-->
+    <bean id="importOneJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!--执行类的实例 目标对象-->
+        <property name="targetObject" ref="importOneTable" />
+        <!--执行方法 目标方法-->
+        <property name="targetMethod" value="run" />
+        <property name="concurrent" value="false" />
+        <!--参数-->
+        <property name="arguments">
+            <list>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="doTask1" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="doTask"/>
+        <property name="targetMethod" value="doAction"/>
+        <property name="concurrent" value="false" />
+        <property name="arguments">
+            <list></list>
+        </property>
+    </bean>
+
+    <!-- ======================== 配置定时调度 触发器 ======================== -->
+    <!--由CronTriggerFactoryBean实现-->
+    <bean id="cronTrigger2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!--上面任务的Task配置bean-->
+        <property name="jobDetail" ref="importOneJob" />
+        <!--触发时机表达式  cron表达式在文章的最末尾会说-->
+        <property name="cronExpression" value="* */5 * * * ?" />
+    </bean>
+
+    <bean id="cronTrigger3" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!--上面任务的Task配置bean-->
+        <property name="jobDetail" ref="doTask1" />
+        <!--触发时机表达式  cron表达式在文章的最末尾会说-->
+        <property name="cronExpression" value="* */5 * * * ?" />
+    </bean>
+    <!-- ======================== 调度工厂（中心调度器） ======================== -->
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+          autowire="no">
+        <property name="triggers">
+            <list>
+                <!--上面配置的触发器-->
+                <ref bean="cronTrigger2" />
+                <ref bean="cronTrigger3"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
