@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/ChinaStockSmallImageWS.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/ChinaStockSmallImageWSSoap.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/GetSmallImage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/GetSmallImageByte.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/GetSmallImageByteResponse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/bond/package-info.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/email/ValidateEmailWebServiceSoap.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/qq/QqOnlineWebService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/qq/QqOnlineWebServiceSoap.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/stockInfo/StockInfoWSSoap.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/libf/ws/weather/WeatherWSSoap.java" charset="GBK" />
+  </component>
+</project>
